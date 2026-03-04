@@ -1,0 +1,42 @@
+{{ $hasChildren := .HasChildren }}
+{{ $isRoot := eq .Level 1 }}
+
+<!-- 
+  修改点：
+  1. 给 li 添加 dynamic class: "is-root" 或 "is-sub"
+  2. 给 svg 添加 class: "menu-arrow"
+  3. 去掉 Tailwind 的 rotate class，全靠 head.html 里的 CSS 控制
+-->
+<li class="group relative px-1 h-full flex items-center {{ if $isRoot }}is-root{{ else }}is-sub{{ end }}">
+  
+  <a href="{{ .URL }}" 
+     class="flex items-center justify-between w-full px-4 py-2 text-sm font-medium text-gray-700 rounded-md 
+            hover:text-primary hover:bg-green-50 transition-colors cursor-pointer whitespace-nowrap">
+    <span>{{ .Name }}</span>
+    
+    {{ if $hasChildren }}
+      <!-- 图标：统一使用向下箭头，方向由 CSS rotate 控制 -->
+      <svg class="menu-arrow w-3 h-3 ml-2 text-gray-400" 
+           fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+      </svg>
+    {{ end }}
+  </a>
+
+  {{ if $hasChildren }}
+    <!-- 下拉菜单容器 -->
+    <div class="submenu-container absolute z-50 submenu-safe-area
+                {{ if $isRoot }} 
+                  top-full left-0 min-w-[180px] 
+                {{ else }} 
+                  top-0 left-full ml-1 min-w-[180px] 
+                {{ end }}">
+      
+      <ul class="bg-white border border-gray-100 shadow-xl rounded-lg py-2">
+        {{ range .Children.ByWeight }}
+          {{ partial "menu-item.html" (dict "URL" .URL "Name" .Name "HasChildren" .HasChildren "Children" .Children "Level" (add $.Level 1)) }}
+        {{ end }}
+      </ul>
+    </div>
+  {{ end }}
+</li>

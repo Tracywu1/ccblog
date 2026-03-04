@@ -1,0 +1,24 @@
+<header class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-40 border-b border-gray-100 h-16">
+  <div class="container mx-auto px-4 h-full flex items-center justify-between">
+    
+    <!-- 左侧：Logo -->
+    <a href="{{ .Site.Home.RelPermalink }}" class="text-2xl font-bold text-gray-800 tracking-tight flex items-center">
+      Tracy's<span class="text-primary">Blog</span>
+    </a>
+
+    <!-- 中间：桌面端导航 -->
+    <nav class="hidden md:block h-full">
+      <ul class="flex items-center h-full space-x-1">
+        <!-- 遍历主菜单，Level 设为 1 -->
+        {{ range .Site.Menus.main.ByWeight }}
+          {{ partial "menu-item.html" (dict "URL" .URL "Name" .Name "HasChildren" .HasChildren "Children" .Children "Level" 1) }}
+        {{ end }}
+      </ul>
+    </nav>
+
+    <!-- 右侧：移动端菜单图标 (占位) -->
+    <button class="md:hidden text-gray-600 p-2">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+    </button>
+  </div>
+</header>

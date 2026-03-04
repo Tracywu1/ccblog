@@ -1,0 +1,63 @@
+<aside class="w-full space-y-6">
+  
+  <!-- 1. 公告栏 -->
+  <!-- 增加 hover:shadow-md transition-shadow 让侧边栏也有交互感 -->
+  <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 relative overflow-hidden hover:shadow-md transition-shadow duration-300">
+    <div class="absolute top-0 left-0 w-1 h-full bg-primary"></div>
+    <h3 class="font-bold text-gray-800 mb-3 text-lg">站点公告</h3>
+    <div class="text-sm text-gray-600 space-y-3">
+      <p class="flex items-center bg-gray-50 p-2 rounded">
+        <span class="text-xs text-gray-400 mr-2">微信</span>
+        <span class="text-primary font-mono font-medium">{{ .Site.Params.wechat | default "Admin" }}</span>
+      </p>
+      <p class="leading-relaxed text-gray-500">{{ .Site.Params.notice | default "欢迎来到我的技术博客。" }}</p>
+    </div>
+  </div>
+
+  <!-- 2. 个人简介 -->
+  <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 text-center hover:shadow-md transition-shadow duration-300">
+    <div class="w-24 h-24 mx-auto mb-4 rounded-full bg-gray-100 p-1 group">
+       <!-- 头像增加轻微放大效果 -->
+      <img src="{{ .Site.Params.avatar }}" class="w-full h-full rounded-full object-cover transition-transform duration-500 group-hover:scale-105">
+    </div>
+    <h2 class="font-bold text-xl text-gray-800">{{ .Site.Params.author }}</h2>
+    <p class="text-xs text-gray-400 mt-1 bg-gray-50 inline-block px-2 py-1 rounded-full">Python / Go / 云原生</p>
+    
+    <div class="flex justify-center gap-8 mt-6 pt-6 border-t border-gray-50">
+      <div class="text-center group cursor-default">
+        <span class="block font-bold text-xl text-gray-800 group-hover:text-primary transition-colors">{{ len .Site.RegularPages }}</span>
+        <span class="text-xs text-gray-400">文章</span>
+      </div>
+      <div class="text-center group cursor-default">
+        <span class="block font-bold text-xl text-gray-800 group-hover:text-primary transition-colors">{{ len .Site.Taxonomies.tags }}</span>
+        <span class="text-xs text-gray-400">标签</span>
+      </div>
+    </div>
+  </div>
+
+    <!-- 3. 搜索框（本地搜索） -->
+  <div id="search-wrap" class="bg-slate-800 rounded-xl p-6 text-white text-center shadow-lg hover:bg-slate-700 transition-colors">
+    <h3 class="font-bold mb-4 text-slate-100">内容搜索</h3>
+
+    <div class="relative group">
+      <input
+        id="search-input"
+        type="text"
+        placeholder="输入关键词..."
+        autocomplete="off"
+        class="w-full bg-slate-600/50 border border-slate-600 text-sm rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary focus:bg-slate-600 transition-all placeholder-slate-400"
+      >
+      <svg class="w-4 h-4 text-slate-400 absolute right-3 top-3.5 group-focus-within:text-primary transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+      </svg>
+
+      <!-- 结果面板 -->
+      <div id="search-results" class="hidden absolute left-0 right-0 mt-2 text-left bg-slate-900 border border-slate-700 rounded-xl shadow-xl overflow-hidden z-50">
+        <div id="search-loading" class="hidden px-4 py-3 text-xs text-slate-300">索引加载中…</div>
+        <div id="search-empty" class="px-4 py-3 text-xs text-slate-400">输入至少 2 个字符开始搜索</div>
+        <ul id="search-results-list" class="max-h-80 overflow-auto"></ul>
+      </div>
+    </div>
+  </div>
+
+</aside>

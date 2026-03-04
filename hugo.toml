@@ -1,0 +1,76 @@
+baseURL = 'http://example.org/'
+languageCode = 'zh-cn'
+title = 'Tracy 的技术星球'
+theme = 'tracy-blog'
+
+[pagination]
+pagerSize = 3
+
+[outputs]
+home = ["HTML", "JSON"]
+
+[outputFormats.JSON]
+mediaType = "application/json"
+baseName = "index"
+isPlainText = true
+
+[markup.tableOfContents]
+  startLevel = 2
+  endLevel = 4
+  ordered = false
+
+[params]
+  description = "记录技术，分享生活"
+  author = "CC"
+  avatar = "https://ui-avatars.com/api/?name=CC&background=10b981&color=fff&size=128" # 示例头像
+  
+  # 侧边栏公告
+  wechat = "gzcxw0923"
+
+# --- 核心：多级菜单配置 (Weight 决定排序) ---
+[menu]
+
+  # 一级菜单
+  [[menu.main]]
+    identifier = "container"
+    name = "容器"
+    url = "/tags/容器/"
+    weight = 20
+
+  [[menu.main]]
+    identifier = "linux"
+    name = "Linux"
+    url = "/tags/linux/"
+    weight = 10
+
+
+  # 二级菜单 (隶属于 Linux)
+  [[menu.main]]
+    identifier = "linux-basic"
+    name = "Linux 基础"
+    parent = "linux"
+    url = "/posts/linux-basic/"
+    weight = 1
+
+  [[menu.main]]
+    identifier = "linux-ops"
+    name = "自动化运维"
+    parent = "linux"
+    url = "/posts/linux-ops/"
+    weight = 2
+
+  # 三级菜单 (隶属于 自动化运维 -> 演示多级嵌套)
+  [[menu.main]]
+    identifier = "ansible"
+    name = "Ansible 实战"
+    parent = "linux-ops"
+    url = "/posts/ansible/"
+    weight = 1
+
+  [[menu.main]]
+    identifier = "saltstack"
+    name = "SaltStack"
+    parent = "linux-ops"
+    url = "/posts/saltstack/"
+    weight = 2
+

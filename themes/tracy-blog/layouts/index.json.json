@@ -1,0 +1,17 @@
+{{- $pages := where .Site.RegularPages "Draft" "!=" true -}}
+[
+{{- $first := true -}}
+{{- range $pages -}}
+  {{- if not $first -}},{{- end -}}
+  {{- $first = false -}}
+  {
+    "title": {{ .Title | jsonify }},
+    "permalink": {{ .Permalink | jsonify }},
+    "relpermalink": {{ .RelPermalink | jsonify }},
+    "date": {{ .Date.Format "2006-01-02" | jsonify }},
+    "summary": {{ .Summary | plainify | htmlUnescape | jsonify }},
+    "content": {{ .Plain | htmlUnescape | truncate 500 | jsonify }},
+    "tags": {{ with .Params.tags }}{{ . | jsonify }}{{ else }}[]{{ end }}
+  }
+{{- end -}}
+]

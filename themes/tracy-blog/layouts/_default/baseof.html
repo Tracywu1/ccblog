@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  {{ partial "head.html" . }}
+</head>
+<body class="bg-[#f8fafc] text-slate-600 font-sans antialiased min-h-screen flex flex-col">
+  
+  {{ partial "header.html" . }}
+
+  <!-- 修改点 1: 使用 Grid 布局代替 Flex，实现 3:9 的黄金比例分割 -->
+  <main class="flex-grow container mx-auto px-4 py-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- 左侧侧边栏 -->
+      <!-- 修改点 2: col-span-3 占比 25%，并添加 sticky 实现滑动固定 -->
+      <aside class="lg:col-span-3 lg:sticky lg:top-24 space-y-6 z-10">
+        {{ partial "sidebar.html" . }}
+      </aside>
+
+      <!-- 右侧主要内容 -->
+      <!-- 修改点 3: col-span-9 占比 75%，保证主视觉足够宽敞 -->
+      <div class="lg:col-span-9 min-w-0">
+        {{ block "main" . }}{{ end }}
+      </div>
+      
+    </div>
+  </main>
+
+  {{ partial "footer.html" . }}
+</body>
+</html>

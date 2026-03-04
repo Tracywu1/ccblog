@@ -1,0 +1,72 @@
+{{ define "main" }}
+
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+  <!-- 正文 -->
+  <article class="lg:col-span-9 bg-white rounded-xl shadow-sm border border-gray-100 p-8">
+    
+    <header class="mb-8 pb-6 border-b border-gray-100">
+      <h1 class="text-3xl font-bold text-gray-900 mb-4">{{ .Title }}</h1>
+      <div class="flex flex-wrap gap-4 text-sm text-gray-500">
+        <span class="flex items-center gap-1">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+          </svg>
+          {{ .WordCount }} 字
+        </span>
+      </div>
+    </header>
+
+    <div class="markdown-body typora-like">
+      {{ .Content }}
+    </div>
+
+  </article>
+
+  <!-- 右侧大纲（PC显示） -->
+<aside class="hidden lg:block lg:col-span-3 lg:sticky lg:top-24">
+  {{ $toc := .TableOfContents }}
+  {{ if and $toc (ne $toc "<nav id=\"TableOfContents\"></nav>") }}
+  <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+
+    <!-- 大纲标题栏（可折叠整块） -->
+<div class="flex flex-nowrap items-center justify-between px-5 py-4 border-b border-gray-100">
+  <div class="text-sm font-bold text-gray-800 whitespace-nowrap">大纲</div>
+
+  <button type="button" id="toc-toggle"
+    class="p-2 rounded-lg text-gray-400 hover:text-primary hover:bg-gray-50 transition whitespace-nowrap"
+    aria-label="切换大纲显示">
+    <!-- eye icon -->
+    <svg id="toc-eye-open" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+    </svg>
+    <!-- eye-off icon -->
+    <svg id="toc-eye-closed" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M3 3l18 18"/>
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M10.477 10.48a3 3 0 004.243 4.243"/>
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M6.228 6.23C4.62 7.49 3.407 9.21 2.458 12c1.274 4.057 5.065 7 9.542 7 1.69 0 3.284-.418 4.677-1.152"/>
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M9.88 4.243A10.97 10.97 0 0112 5c4.477 0 8.268 2.943 9.542 7a11.04 11.04 0 01-2.12 3.592"/>
+    </svg>
+  </button>
+</div>
+
+    <!-- 独立滚动区域 -->
+    <div id="toc-scroll" class="px-5 py-4">
+      <nav id="toc" class="toc text-sm text-gray-700">
+        {{ $toc }}
+      </nav>
+    </div>
+
+  </div>
+  {{ end }}
+</aside>
+</div>
+
+{{ end }}
