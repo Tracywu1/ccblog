@@ -34,7 +34,8 @@
     // 拉取索引
     loading.classList.remove("hidden");
     try {
-      const res = await fetch("/index.json", { cache: "no-store" });
+      const base = (window.__BASEURL__ || "/").replace(/\/+$/, "/");
+      const res = await fetch(base + "index.json", { cache: "no-store" });
       indexData = await res.json();
 
       fuse = new Fuse(indexData, {
