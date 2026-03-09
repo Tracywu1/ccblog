@@ -66,6 +66,30 @@
 .markdown-body.typora-like td {
   padding: 10px 12px;
 }
+
+/* 原始 HTML 图片统一按块展示，避免文字围绕图片错位 */
+.markdown-body.typora-like img {
+  display: block;
+  height: auto;
+  margin: 1.25rem auto;
+  max-width: 100%;
+}
+
+.markdown-body.typora-like img[align="left"],
+.markdown-body.typora-like img[align="right"] {
+  clear: both;
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.markdown-body.typora-like a:has(> img) {
+  display: block;
+  margin: 1.25rem 0;
+  text-align: center;
+}
 /* 修复：Tailwind preflight 会把 ul/ol 的 list-style 清掉 */
 .markdown-body.typora-like ul {
   list-style: disc !important;
