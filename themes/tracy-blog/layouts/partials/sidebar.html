@@ -1,7 +1,7 @@
 <aside class="w-full space-y-6">
   <!-- 1. 搜索框（本地搜索） -->
-  <div id="search-wrap" class="bg-slate-800 rounded-xl p-6 text-white text-center shadow-lg hover:bg-slate-700 transition-colors">
-    <h3 class="font-bold mb-4 text-slate-100">内容搜索</h3>
+  <div id="search-wrap" class="bg-white rounded-xl p-6 text-center shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300">
+    <h3 class="font-bold mb-4 text-lg text-gray-800">内容搜索</h3>
 
     <div class="relative group">
       <input
@@ -9,16 +9,16 @@
         type="text"
         placeholder="输入关键词..."
         autocomplete="off"
-        class="w-full bg-slate-600/50 border border-slate-600 text-sm rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary focus:bg-slate-600 transition-all placeholder-slate-400"
+        class="w-full bg-gray-50 border border-gray-200 text-sm rounded-lg px-4 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary focus:bg-white transition-all placeholder-gray-400"
       >
-      <svg class="w-4 h-4 text-slate-400 absolute right-3 top-3.5 group-focus-within:text-primary transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg class="w-4 h-4 text-gray-400 absolute right-3 top-3.5 group-focus-within:text-primary transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
       </svg>
 
       <!-- 结果面板 -->
-      <div id="search-results" class="hidden absolute left-0 right-0 mt-2 text-left bg-slate-900 border border-slate-700 rounded-xl shadow-xl overflow-hidden z-50">
-        <div id="search-loading" class="hidden px-4 py-3 text-xs text-slate-300">索引加载中…</div>
-        <div id="search-empty" class="px-4 py-3 text-xs text-slate-400">输入至少 2 个字符开始搜索</div>
+      <div id="search-results" class="hidden absolute left-0 right-0 mt-2 text-left bg-white border border-gray-200 rounded-xl shadow-xl overflow-hidden z-50">
+        <div id="search-loading" class="hidden px-4 py-3 text-xs text-gray-500 bg-gray-50 border-b border-gray-100">索引加载中…</div>
+        <div id="search-empty" class="px-4 py-3 text-xs text-gray-400">输入至少 2 个字符开始搜索</div>
         <ul id="search-results-list" class="max-h-80 overflow-auto"></ul>
       </div>
     </div>

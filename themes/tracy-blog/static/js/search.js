@@ -80,14 +80,14 @@
         const summary = highlight(summaryRaw, q);
 
         const tags = (item.tags || []).slice(0, 5).map(t =>
-          `<span class="text-xs bg-slate-700/60 px-2 py-0.5 rounded">${t}</span>`
+          `<span class="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded">${t}</span>`
         ).join("");
 
         const li = document.createElement("li");
         li.innerHTML = `
-          <a class="block p-3 rounded-lg hover:bg-slate-700/50 transition-colors" href="${item.relpermalink}">
-            <div class="text-sm font-semibold text-white">${title}</div>
-            <div class="text-xs text-slate-300 mt-1 line-clamp-2">${summary}</div>
+          <a class="block p-3 rounded-lg hover:bg-gray-50 transition-colors" href="${item.relpermalink}">
+            <div class="text-sm font-semibold text-gray-800">${title}</div>
+            <div class="text-xs text-gray-500 mt-1 line-clamp-2">${summary}</div>
             <div class="mt-2 flex gap-2 flex-wrap">${tags}</div>
           </a>
         `;
