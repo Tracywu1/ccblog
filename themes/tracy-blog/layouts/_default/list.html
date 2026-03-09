@@ -44,7 +44,7 @@
           {{ with .Params.tags }}
           <div class="flex gap-2 relative z-10">
             {{ range . }}
-            <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class="bg-green-50 text-primary px-2 py-0.5 rounded hover:bg-primary hover:text-white transition-colors">
+            <a href="{{ printf "tags/%s/" (. | urlize) | relLangURL }}" class="bg-green-50 text-primary px-2 py-0.5 rounded hover:bg-primary hover:text-white transition-colors">
               #{{ . }}
             </a>
             {{ end }}
