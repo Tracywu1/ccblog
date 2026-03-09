@@ -59,8 +59,10 @@
 
 /* 表格更清爽 */
 .markdown-body.typora-like table {
-  display: table;
-  width: 100%;
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  width: max-content;
 }
 .markdown-body.typora-like th,
 .markdown-body.typora-like td {
