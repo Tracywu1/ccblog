@@ -19,6 +19,9 @@ isPlainText = true
   endLevel = 4
   ordered = false
 
+[markup.goldmark.renderer]
+  unsafe = true
+
 [params]
   description = "记录技术，分享生活"
   author = "CC"
