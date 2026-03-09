@@ -24,21 +24,7 @@
     </div>
   </div>
 
-  <!-- 2. 公告栏 -->
-  <!-- 增加 hover:shadow-md transition-shadow 让侧边栏也有交互感 -->
-  <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 relative overflow-hidden hover:shadow-md transition-shadow duration-300">
-    <div class="absolute top-0 left-0 w-1 h-full bg-primary"></div>
-    <h3 class="font-bold text-gray-800 mb-3 text-lg">站点公告</h3>
-    <div class="text-sm text-gray-600 space-y-3">
-      <p class="flex items-center bg-gray-50 p-2 rounded">
-        <span class="text-xs text-gray-400 mr-2">微信</span>
-        <span class="text-primary font-mono font-medium">{{ .Site.Params.wechat | default "Admin" }}</span>
-      </p>
-      <p class="leading-relaxed text-gray-500">{{ .Site.Params.notice | default "欢迎来到我的技术博客。" }}</p>
-    </div>
-  </div>
-
-  <!-- 3. 个人简介 -->
+  <!-- 2. 个人简介 -->
   <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 text-center hover:shadow-md transition-shadow duration-300">
     <div class="w-24 h-24 mx-auto mb-4 rounded-full bg-gray-100 p-1 group">
        <!-- 头像增加轻微放大效果 -->
@@ -56,6 +42,20 @@
         <span class="block font-bold text-xl text-gray-800 group-hover:text-primary transition-colors">{{ len .Site.Taxonomies.tags }}</span>
         <span class="text-xs text-gray-400">标签</span>
       </div>
+    </div>
+  </div>
+
+  <!-- 3. 公告栏 -->
+  <!-- 增加 hover:shadow-md transition-shadow 让侧边栏也有交互感 -->
+  <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 relative overflow-hidden hover:shadow-md transition-shadow duration-300">
+    <div class="absolute top-0 left-0 w-1 h-full bg-primary"></div>
+    <h3 class="font-bold text-gray-800 mb-3 text-lg">站点公告</h3>
+    <div class="text-sm text-gray-600 space-y-3">
+      <p class="flex items-center bg-gray-50 p-2 rounded">
+        <span class="text-xs text-gray-400 mr-2">微信</span>
+        <span class="text-primary font-mono font-medium">{{ .Site.Params.wechat | default "Admin" }}</span>
+      </p>
+      <p class="leading-relaxed text-gray-500">{{ .Site.Params.notice | default "欢迎来到我的技术博客。" }}</p>
     </div>
   </div>
 
