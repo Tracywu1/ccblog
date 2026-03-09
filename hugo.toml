@@ -30,47 +30,105 @@ isPlainText = true
 # --- 核心：多级菜单配置 (Weight 决定排序) ---
 [menu]
 
-  # 一级菜单
   [[menu.main]]
     identifier = "container"
     name = "容器"
-    url = "/tags/容器/"
+    url = "/posts/容器/"
     weight = 20
 
   [[menu.main]]
-    identifier = "linux"
-    name = "Linux"
-    url = "/tags/linux/"
+    identifier = "k8s"
+    name = "K8s"
+    url = "/posts/k8s/"
     weight = 10
 
-
-  # 二级菜单 (隶属于 Linux)
   [[menu.main]]
-    identifier = "linux-basic"
-    name = "Linux 基础"
-    parent = "linux"
-    url = "/posts/linux-basic/"
+    identifier = "k8s-basic"
+    name = "基础"
+    parent = "k8s"
+    url = "/posts/k8s/基础/"
     weight = 1
 
   [[menu.main]]
-    identifier = "linux-ops"
-    name = "自动化运维"
-    parent = "linux"
-    url = "/posts/linux-ops/"
+    identifier = "k8s-advanced"
+    name = "进阶"
+    parent = "k8s"
+    url = "/posts/k8s/进阶/"
     weight = 2
 
-  # 三级菜单 (隶属于 自动化运维 -> 演示多级嵌套)
   [[menu.main]]
-    identifier = "ansible"
-    name = "Ansible 实战"
-    parent = "linux-ops"
-    url = "/posts/ansible/"
+    identifier = "k8s-basic-start"
+    name = "入门"
+    parent = "k8s-basic"
+    url = "/posts/k8s/基础/入门/"
     weight = 1
 
   [[menu.main]]
-    identifier = "saltstack"
-    name = "SaltStack"
-    parent = "linux-ops"
-    url = "/posts/saltstack/"
+    identifier = "k8s-basic-pod"
+    name = "Pod与资源"
+    parent = "k8s-basic"
+    url = "/posts/k8s/基础/Pod与资源/"
     weight = 2
 
+  [[menu.main]]
+    identifier = "k8s-basic-config"
+    name = "配置与安全"
+    parent = "k8s-basic"
+    url = "/posts/k8s/基础/配置与安全/"
+    weight = 3
+
+  [[menu.main]]
+    identifier = "k8s-basic-network"
+    name = "网络"
+    parent = "k8s-basic"
+    url = "/posts/k8s/基础/网络/"
+    weight = 4
+
+  [[menu.main]]
+    identifier = "k8s-basic-scheduling"
+    name = "调度"
+    parent = "k8s-basic"
+    url = "/posts/k8s/基础/调度/"
+    weight = 5
+
+  [[menu.main]]
+    identifier = "k8s-advanced-controller"
+    name = "控制器与扩展"
+    parent = "k8s-advanced"
+    url = "/posts/k8s/进阶/控制器与扩展/"
+    weight = 1
+
+  [[menu.main]]
+    identifier = "k8s-advanced-storage"
+    name = "存储"
+    parent = "k8s-advanced"
+    url = "/posts/k8s/进阶/存储/"
+    weight = 2
+
+  [[menu.main]]
+    identifier = "k8s-advanced-helm"
+    name = "Helm"
+    parent = "k8s-advanced"
+    url = "/posts/k8s/进阶/Helm/"
+    weight = 3
+
+  [[menu.main]]
+    identifier = "k8s-advanced-ops"
+    name = "集群运维"
+    parent = "k8s-advanced"
+    url = "/posts/k8s/进阶/集群运维/"
+    weight = 4
+
+  [[menu.main]]
+    identifier = "k8s-advanced-monitoring"
+    name = "监控"
+    parent = "k8s-advanced"
+    url = "/posts/k8s/进阶/监控/"
+    weight = 5
+
+  [[menu.main]]
+    identifier = "k8s-advanced-logging"
+    name = "日志"
+    parent = "k8s-advanced"
+    url = "/posts/k8s/进阶/日志/"
+    weight = 6
