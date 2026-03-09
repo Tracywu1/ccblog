@@ -49,11 +49,54 @@
   li.is-sub > a > .menu-arrow { transform: rotate(-90deg); }
   li.is-sub:hover > a > .menu-arrow { transform: rotate(180deg); }
 
+  .markdown-body .mermaid {
+    overflow-x: auto;
+    text-align: center;
+    margin: 1.5rem 0;
+  }
+
+  .markdown-body .mermaid svg {
+    height: auto;
+    max-width: 100%;
+  }
+
 </style>
 
 <link rel="stylesheet" href="{{ "css/github-markdown.min.css" | relURL }}">
 <link rel="stylesheet" href="{{ "css/typora-like.css" | relURL }}">
 <script>window.__INDEX_JSON__ = "{{ "index.json" | relURL }}";</script>
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+
+  mermaid.initialize({
+    startOnLoad: false,
+    securityLevel: 'loose',
+    theme: 'default',
+  });
+
+  const runMermaid = async () => {
+    const nodes = Array.from(document.querySelectorAll('.mermaid')).filter(
+      (node) => !node.dataset.mermaidProcessed
+    );
+
+    if (nodes.length === 0) {
+      return;
+    }
+
+    await mermaid.run({ nodes });
+    nodes.forEach((node) => {
+      node.dataset.mermaidProcessed = 'true';
+    });
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      runMermaid().catch(console.error);
+    }, { once: true });
+  } else {
+    runMermaid().catch(console.error);
+  }
+</script>
 <script defer src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
 <script defer src="{{ "js/search.js" | relURL }}"></script>
 <script defer src="{{ "js/toc.js" | relURL }}"></script>

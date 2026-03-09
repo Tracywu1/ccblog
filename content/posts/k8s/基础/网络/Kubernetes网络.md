@@ -342,7 +342,7 @@ $ kubectl apply -f replicaset.yaml
 | **典型问题** | 依赖网络策略而非二层隔离          | VLAN ID 限制（最多 4096，12bit） |
 ### 2. **协议封装技术**
 
-[在容器技术核心基础的网络模式部分有涉及](C:\Users\Lenovo\桌面\SRE\技术相关\Docker\容器技术\01 容器技术核心基础.md)
+[在容器技术核心基础的网络模式部分有涉及]({{< relref "/posts/容器/01 容器技术核心基础.md" >}})
 
 #### **2.1 VLAN 模式**
 
@@ -381,7 +381,7 @@ $ kubectl apply -f replicaset.yaml
 
 - **数据流向**
 
-  <img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20250412230908221.png" alt="image-20250412230908221" style="zoom:33%;" align='left'/>
+<img src="https://ccwu-1316557530.cos.ap-guangzhou.myqcloud.com/image-20250412230908221.png" alt="image-20250412230908221" style="zoom:33%;" align='left'/>
 
 - **优势**：
   - **组播支持**：新节点自动加入组播组，广播流量高效分发。

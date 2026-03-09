@@ -30,7 +30,7 @@ tags: ["k8s", "基础", "Pod与资源"]
 - **创建方式**：直接由kubelet通过配置文件/HTTP创建
 - **特点**：绕过API Server，无etcd存储记录
 ## 二、Pod创建流程
-[涉及Pod创建流程（含4-7较完整内容）](C:\Users\Lenovo\桌面\暑期实习\技术相关\k8s\进阶\01 k8s网络.md)
+[涉及Pod创建流程（含4-7较完整内容）]({{< relref "/posts/k8s/基础/网络/Kubernetes网络.md" >}})
 
 **重点：Kubelet 创建容器部分**
 ## 三、Pod常见状态解析
@@ -365,7 +365,7 @@ resources:
 >
 > **2. 在k8s中使用gpu**
 >
-> [联系容器内如何使用gpu]("C:\Users\Lenovo\桌面\暑期实习\技术相关\Docker\容器技术\01 容器技术核心基础.md")
+> [联系容器内如何使用gpu]({{< relref "/posts/容器/01 容器技术核心基础.md" >}})
 >
 > 要使 K8s Pod 中的nvidia.com/gpu资源配置生效，需要在GPU节点上完成以下安装和配置： 
 > （1） NVIDIA GPU 驱动程序：宿主机安装驱动程序，使操作系统能够识别和管理GPU。 
@@ -386,7 +386,7 @@ resources:
 >
 > **4. 大页内存（hugepages）**
 >
-> [容器内存储备知识部分]("C:\Users\Lenovo\桌面\暑期实习\技术相关\Docker\容器技术\03 容器内存.md")
+> [容器内存储备知识部分]({{< relref "/posts/容器/03 容器内存.md" >}})
 #### **1.6 多容器资源调度逻辑**
 - **调度步骤**：  
   1. 计算 `initContainers` 中所有容器的最大 `requests` 值（记为 **X**）。
