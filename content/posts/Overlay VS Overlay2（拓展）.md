@@ -1,4 +1,8 @@
-# Overlay VS Overlay2（拓展）
+---
+title: "Overlay VS Overlay2（拓展）"
+draft: false
+tags: ["容器"]
+---
 
 以下是 Docker 官方文档和 Linux 内核实现中两个存储驱动的关键差异总结：
 
@@ -243,4 +247,3 @@ sequenceDiagram
     K-->>O: rename("/upper/lower/file", "/upper/newfile")
     O-->>C: 返回成功
 ```
-
